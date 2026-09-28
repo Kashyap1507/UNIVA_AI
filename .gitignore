@@ -1,0 +1,24 @@
+# macOS
+.DS_Store
+*/.DS_Store
+**/.DS_Store
+
+# Gradle
+.gradle/
+build/
+*/build/
+App/.gradle/
+
+# iOS CocoaPods
+App/iosApp/Pods/
+Pods/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# Node
+node_modules/
+.next/

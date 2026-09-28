@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <!-- For development only -->
+    <domain-config cleartextTrafficPermitted="true">
+        <!-- Allow localhost -->
+        <domain includeSubdomains="true">localhost</domain>
+        <domain includeSubdomains="true">127.0.0.1</domain>
+
+        <!-- Allow Android emulator special IP -->
+        <domain includeSubdomains="true">10.0.2.2</domain>
+
+        <!-- Allow your machine's IP (update this with your actual IP) -->
+        <domain includeSubdomains="true">192.168.0.78</domain>
+
+        <!-- Note: CIDR notation is not supported in network_security_config.xml -->
+        <!-- Add specific IPs above instead of using ranges like 192.168.0.0/16 -->
+    </domain-config>
+</network-security-config>

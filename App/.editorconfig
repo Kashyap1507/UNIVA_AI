@@ -1,0 +1,41 @@
+[*.{kt,kts}]
+# Standard indentation
+indent_size = 4
+indent_style = space
+
+# Set max line length to 200 (flexible for long lines)
+max_line_length = 200
+
+# Disable function naming rule for Composable functions (Android convention)
+ktlint_standard_function-naming = disabled
+
+# Disable property naming rule for backing properties with underscore prefix (Android convention)
+ktlint_standard_property-naming = disabled
+
+# Disable max line length check (flexible for readability)
+ktlint_standard_max-line-length = disabled
+
+# Disable final newline requirement
+insert_final_newline = false
+ktlint_standard_final-newline = disabled
+
+# Import ordering - disable to allow IDE-managed imports
+ktlint_standard_import-ordering = disabled
+ij_kotlin_imports_layout = *
+
+# Allow wildcard imports
+ktlint_standard_no-wildcard-imports = disabled
+
+# Disable some opinionated rules that conflict with Android conventions
+ktlint_standard_no-consecutive-blank-lines = disabled
+ktlint_standard_chain-wrapping = disabled
+ktlint_standard_trailing-comma-on-call-site = disabled
+ktlint_standard_trailing-comma-on-declaration-site = disabled
+
+# Allow consecutive KDoc/comments for detailed documentation
+ktlint_standard_no-consecutive-comments = disabled
+
+# Allow flexible file naming (iOS platform-specific files use .ios.kt suffix)
+ktlint_standard_filename = disabled
+
+# Note: discouraged-comment-location is NOT disabled because it's required by if-else-wrapping rule

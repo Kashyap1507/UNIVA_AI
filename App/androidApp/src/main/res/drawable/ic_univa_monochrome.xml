@@ -1,0 +1,17 @@
+<!-- Univa AI logo in one colour (Android 13 themed icon; the system tints it) -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <path
+        android:pathData="M42.615,40.8 L42.615,55.98 A11.385,11.385 0 0,0 65.385,55.98 L65.385,40.8"
+        android:strokeColor="#FFFFFFFF"
+        android:strokeWidth="7.59"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:fillColor="#00000000" />
+    <path
+        android:pathData="M72.48,29.91 L74.051,33.949 L78.09,35.52 L74.051,37.091 L72.48,41.13 L70.909,37.091 L66.87,35.52 L70.909,33.949 Z"
+        android:fillColor="#FFFFFFFF" />
+</vector>

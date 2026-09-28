@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "554491502783",
+    "project_id": "wizly-ai-2026",
+    "storage_bucket": "wizly-ai-2026.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:554491502783:android:c365788911e95f3727a60a",
+        "android_client_info": {
+          "package_name": "com.kashyap.wizlyai.android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "554491502783-kpftsf2ebud4ubfv7msv49s7gd2vudqq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kashyap.wizlyai.android",
+            "certificate_hash": "36528490ecc6a9683e1dacfdfa8c3db5d3569ba8"
+          }
+        },
+        {
+          "client_id": "554491502783-2qrtvs2scpl5pqdvnbug2dth1ima79r9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBLi3JN0BWXWm7gUhWYRVeIGZb1VHy4tm0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "554491502783-2qrtvs2scpl5pqdvnbug2dth1ima79r9.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "554491502783-tk6h7vq20ala5lg2l198kjjqicmoh2d4.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.kashyap.wizlyai.ios"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

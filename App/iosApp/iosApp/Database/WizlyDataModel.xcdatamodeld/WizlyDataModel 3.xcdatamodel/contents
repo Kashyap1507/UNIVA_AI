@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="23788.4" systemVersion="24F74" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="CachedCourse" representedClassName="CachedCourse" syncable="YES" codeGenerationType="class">
+        <attribute name="cachedAt" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" attributeType="String"/>
+        <attribute name="payloadJson" attributeType="String"/>
+        <attribute name="updatedAt" optional="YES" attributeType="String"/>
+        <attribute name="userId" attributeType="String"/>
+        <fetchIndex name="byUserId">
+            <fetchIndexElement property="userId" type="Binary" order="ascending"/>
+        </fetchIndex>
+    </entity>
+    <entity name="CachedCourseMaterial" representedClassName="CachedCourseMaterial" syncable="YES" codeGenerationType="class">
+        <attribute name="cachedAt" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="courseId" attributeType="String"/>
+        <attribute name="id" attributeType="String"/>
+        <attribute name="payloadJson" attributeType="String"/>
+        <attribute name="updatedAt" optional="YES" attributeType="String"/>
+        <fetchIndex name="byCourseId">
+            <fetchIndexElement property="courseId" type="Binary" order="ascending"/>
+        </fetchIndex>
+    </entity>
+    <entity name="DocumentEntity" representedClassName=".DocumentEntity" syncable="YES">
+        <attribute name="createdAt" attributeType="String"/>
+        <attribute name="deletedAt" optional="YES" attributeType="String"/>
+        <attribute name="deletedFlag" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="id" attributeType="String"/>
+        <attribute name="lastSyncedAt" optional="YES" attributeType="String"/>
+        <attribute name="pageCount" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="processingProgress" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="status" attributeType="String" defaultValueString="PENDING"/>
+        <attribute name="syncStatus" attributeType="String" defaultValueString="pending"/>
+        <attribute name="thumbnailPath" optional="YES" attributeType="String"/>
+        <attribute name="title" attributeType="String"/>
+        <attribute name="type" attributeType="String"/>
+        <attribute name="updatedAt" attributeType="String"/>
+        <attribute name="userId" attributeType="String" renamingIdentifier="childId"/>
+        <relationship name="pages" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="DocumentPageEntity" inverseName="document" inverseEntity="DocumentPageEntity"/>
+    </entity>
+    <entity name="DocumentPageEntity" representedClassName=".DocumentPageEntity" syncable="YES">
+        <attribute name="deletedAt" optional="YES" attributeType="String"/>
+        <attribute name="deletedFlag" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="documentId" attributeType="String"/>
+        <attribute name="fileSize" optional="YES" attributeType="Integer 64" usesScalarValueType="YES"/>
+        <attribute name="height" optional="YES" attributeType="Integer 32" usesScalarValueType="YES"/>
+        <attribute name="id" attributeType="String"/>
+        <attribute name="imagePath" attributeType="String"/>
+        <attribute name="lastSyncedAt" optional="YES" attributeType="String"/>
+        <attribute name="pageNumber" attributeType="Integer 32" usesScalarValueType="YES"/>
+        <attribute name="syncStatus" attributeType="String" defaultValueString="pending"/>
+        <attribute name="thumbnailPath" optional="YES" attributeType="String"/>
+        <attribute name="uploadedAt" attributeType="String"/>
+        <attribute name="width" optional="YES" attributeType="Integer 32" usesScalarValueType="YES"/>
+        <relationship name="document" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DocumentEntity" inverseName="pages" inverseEntity="DocumentEntity"/>
+    </entity>
+    <entity name="UserEntity" representedClassName=".UserEntity" syncable="YES">
+        <attribute name="authProvider" attributeType="String" defaultValueString="email"/>
+        <attribute name="createdAt" attributeType="String"/>
+        <attribute name="email" attributeType="String"/>
+        <attribute name="id" attributeType="String"/>
+        <attribute name="lastLogin" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="syncStatus" attributeType="String" defaultValueString="synced"/>
+        <attribute name="updatedAt" attributeType="String"/>
+    </entity>
+</model>

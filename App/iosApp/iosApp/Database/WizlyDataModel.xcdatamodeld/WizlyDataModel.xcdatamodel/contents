@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="23788.4" systemVersion="24F74" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="ChildEntity" representedClassName=".ChildEntity" syncable="YES">
+        <attribute name="birthMonth" attributeType="Integer 32" usesScalarValueType="YES"/>
+        <attribute name="birthYear" attributeType="Integer 32" usesScalarValueType="YES"/>
+        <attribute name="contentLevel" optional="YES" attributeType="String"/>
+        <attribute name="createdAt" attributeType="String"/>
+        <attribute name="gradeId" optional="YES" attributeType="String"/>
+        <attribute name="id" attributeType="String"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="parentId" attributeType="String"/>
+        <attribute name="syncStatus" attributeType="String" defaultValueString="synced"/>
+        <attribute name="updatedAt" attributeType="String"/>
+        <relationship name="documents" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="DocumentEntity" inverseName="child" inverseEntity="DocumentEntity"/>
+        <relationship name="grade" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GradeEntity" inverseName="children" inverseEntity="GradeEntity"/>
+        <relationship name="homework" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="HomeworkEntity" inverseName="child" inverseEntity="HomeworkEntity"/>
+        <relationship name="parent" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UserEntity" inverseName="children" inverseEntity="UserEntity"/>
+    </entity>
+    <entity name="ConceptEntity" representedClassName=".ConceptEntity" syncable="YES">
+        <attribute name="createdAt" attributeType="String"/>
+        <attribute name="desc_" optional="YES" attributeType="String"/>
+        <attribute name="displayOrder" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="id" attributeType="String"/>
+        <attribute name="isActive" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="position" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="syncStatus" attributeType="String" defaultValueString="synced"/>
+        <attribute name="topicId" attributeType="String"/>
+        <attribute name="updatedAt" attributeType="String"/>
+        <relationship name="skills" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="SkillEntity" inverseName="concept" inverseEntity="SkillEntity"/>
+        <relationship name="topic" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TopicEntity" inverseName="concepts" inverseEntity="TopicEntity"/>
+    </entity>
+    <entity name="DocumentEntity" representedClassName=".DocumentEntity" syncable="YES">
+        <attribute name="childId" attributeType="String"/>
+        <attribute name="conceptId" optional="YES" attributeType="String"/>
+        <attribute name="correctedAt" optional="YES" attributeType="String"/>
+        <attribute name="correctionCorrectCount" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="correctionScore" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="correctionScoreLevel" optional="YES" attributeType="String"/>
+        <attribute name="correctionTotalCount" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="createdAt" attributeType="String"/>
+        <attribute name="deletedAt" optional="YES" attributeType="String"/>
+        <attribute name="deletedFlag" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="gradeId" optional="YES" attributeType="String"/>
+        <attribute name="gradeName" optional="YES" attributeType="String"/>
+        <attribute name="hasCorrectionData" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="correctionDataJson" optional="YES" attributeType="String"/>
+        <attribute name="worksheetDataJson" optional="YES" attributeType="String"/>
+        <attribute name="id" attributeType="String"/>
+        <attribute name="lastSyncedAt" optional="YES" attributeType="String"/>
+        <attribute name="pageCount" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="processingProgress" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="skillId" optional="YES" attributeType="String"/>
+        <attribute name="status" attributeType="String" defaultValueString="PENDING"/>
+        <attribute name="subjectId" optional="YES" attributeType="String"/>
+        <attribute name="subjectName" optional="YES" attributeType="String"/>
+        <attribute name="syncStatus" attributeType="String" defaultValueString="pending"/>
+        <attribute name="thumbnailPath" optional="YES" attributeType="String"/>
+        <attribute name="title" attributeType="String"/>
+        <attribute name="topicId" optional="YES" attributeType="String"/>
+        <attribute name="type" attributeType="String"/>
+        <attribute name="updatedAt" attributeType="String"/>
+        <relationship name="child" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ChildEntity" inverseName="documents" inverseEntity="ChildEntity"/>
+        <relationship name="homework" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="HomeworkEntity" inverseName="document" inverseEntity="HomeworkEntity"/>
+        <relationship name="pages" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="DocumentPageEntity" inverseName="document" inverseEntity="DocumentPageEntity"/>
+    </entity>
+    <entity name="DocumentPageEntity" representedClassName=".DocumentPageEntity" syncable="YES">
+        <attribute name="deletedAt" optional="YES" attributeType="String"/>
+        <attribute name="deletedFlag" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="documentId" attributeType="String"/>
+        <attribute name="fileSize" optional="YES" attributeType="Integer 64" usesScalarValueType="YES"/>
+        <attribute name="height" optional="YES" attributeType="Integer 32" usesScalarValueType="YES"/>
+        <attribute name="id" attributeType="String"/>
+        <attribute name="imagePath" attributeType="String"/>
+        <attribute name="lastSyncedAt" optional="YES" attributeType="String"/>
+        <attribute name="pageNumber" attributeType="Integer 32" usesScalarValueType="YES"/>
+        <attribute name="syncStatus" attributeType="String" defaultValueString="pending"/>
+        <attribute name="thumbnailPath" optional="YES" attributeType="String"/>
+        <attribute name="uploadedAt" attributeType="String"/>
+        <attribute name="width" optional="YES" attributeType="Integer 32" usesScalarValueType="YES"/>
+        <relationship name="document" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DocumentEntity" inverseName="pages" inverseEntity="DocumentEntity"/>
+    </entity>
+    <entity name="GradeEntity" representedClassName=".GradeEntity" syncable="YES">
+        <attribute name="ageRange" optional="YES" attributeType="String"/>
+        <attribute name="createdAt" attributeType="String"/>
+        <attribute name="desc_" optional="YES" attributeType="String"/>
+        <attribute name="displayOrder" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="gradeOrder" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="id" attributeType="String"/>
+        <attribute name="isActive" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES"/>
+        <attribute name="maxAge" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="minAge" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="syncStatus" attributeType="String" defaultValueString="synced"/>
+        <attribute name="updatedAt" attributeType="String"/>
+        <relationship name="children" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ChildEntity" inverseName="grade" inverseEntity="ChildEntity"/>
+        <relationship name="subjects" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="SubjectEntity" inverseName="grade" inverseEntity="SubjectEntity"/>
+    </entity>
+    <entity name="HomeworkEntity" representedClassName=".HomeworkEntity" syncable="YES">
+        <attribute name="assignmentType" optional="YES" attributeType="String"/>
+        <attribute name="childId" attributeType="String"/>
+        <attribute name="correctAnswer" attributeType="String"/>
+        <attribute name="createdAt" attributeType="String"/>
+        <attribute name="documentId" attributeType="String"/>
+        <attribute name="explanation" attributeType="String"/>
+        <attribute name="id" attributeType="String"/>
+        <attribute name="isCorrect" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="missingElements" optional="YES" attributeType="String"/>
+        <attribute name="praise" optional="YES" attributeType="String"/>
+        <attribute name="question" attributeType="String"/>
+        <attribute name="stepByStep" optional="YES" attributeType="String"/>
+        <attribute name="studentAnswer" attributeType="String"/>
+        <attribute name="subject" optional="YES" attributeType="String"/>
+        <attribute name="subjectId" optional="YES" attributeType="String"/>
+        <attribute name="syncStatus" attributeType="String" defaultValueString="synced"/>
+        <attribute name="updatedAt" attributeType="String"/>
+        <relationship name="child" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ChildEntity" inverseName="homework" inverseEntity="ChildEntity"/>
+        <relationship name="document" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DocumentEntity" inverseName="homework" inverseEntity="DocumentEntity"/>
+    </entity>
+    <entity name="SkillEntity" representedClassName=".SkillEntity" syncable="YES">
+        <attribute name="conceptId" attributeType="String"/>
+        <attribute name="createdAt" attributeType="String"/>
+        <attribute name="desc_" optional="YES" attributeType="String"/>
+        <attribute name="displayOrder" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="id" attributeType="String"/>
+        <attribute name="isActive" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="position" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="syncStatus" attributeType="String" defaultValueString="synced"/>
+        <attribute name="updatedAt" attributeType="String"/>
+        <relationship name="concept" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ConceptEntity" inverseName="skills" inverseEntity="ConceptEntity"/>
+    </entity>
+    <entity name="SubjectEntity" representedClassName=".SubjectEntity" syncable="YES">
+        <attribute name="createdAt" attributeType="String"/>
+        <attribute name="desc_" optional="YES" attributeType="String"/>
+        <attribute name="displayOrder" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="gradeId" attributeType="String"/>
+        <attribute name="iconColor" optional="YES" attributeType="String"/>
+        <attribute name="iconUrl" optional="YES" attributeType="String"/>
+        <attribute name="id" attributeType="String"/>
+        <attribute name="isActive" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="position" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="syncStatus" attributeType="String" defaultValueString="synced"/>
+        <attribute name="updatedAt" attributeType="String"/>
+        <relationship name="grade" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GradeEntity" inverseName="subjects" inverseEntity="GradeEntity"/>
+        <relationship name="topics" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="TopicEntity" inverseName="subject" inverseEntity="TopicEntity"/>
+    </entity>
+    <entity name="TopicEntity" representedClassName=".TopicEntity" syncable="YES">
+        <attribute name="createdAt" attributeType="String"/>
+        <attribute name="desc_" optional="YES" attributeType="String"/>
+        <attribute name="displayOrder" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="id" attributeType="String"/>
+        <attribute name="isActive" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="position" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="subjectId" attributeType="String"/>
+        <attribute name="syncStatus" attributeType="String" defaultValueString="synced"/>
+        <attribute name="updatedAt" attributeType="String"/>
+        <relationship name="concepts" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ConceptEntity" inverseName="topic" inverseEntity="ConceptEntity"/>
+        <relationship name="subject" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SubjectEntity" inverseName="topics" inverseEntity="SubjectEntity"/>
+    </entity>
+    <entity name="UserEntity" representedClassName=".UserEntity" syncable="YES">
+        <attribute name="authProvider" attributeType="String" defaultValueString="email"/>
+        <attribute name="createdAt" attributeType="String"/>
+        <attribute name="email" attributeType="String"/>
+        <attribute name="id" attributeType="String"/>
+        <attribute name="lastLogin" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="syncStatus" attributeType="String" defaultValueString="synced"/>
+        <attribute name="updatedAt" attributeType="String"/>
+        <relationship name="children" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ChildEntity" inverseName="parent" inverseEntity="ChildEntity"/>
+    </entity>
+    <entity name="UserStudyCollectionEntity" representedClassName=".UserStudyCollectionEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="childId" optional="YES" attributeType="String"/>
+        <attribute name="completedWorksheetCount" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="conceptId" optional="YES" attributeType="String"/>
+        <attribute name="conceptName" optional="YES" attributeType="String"/>
+        <attribute name="createdAt" optional="YES" attributeType="String"/>
+        <attribute name="deletedAt" optional="YES" attributeType="String"/>
+        <attribute name="deletedFlag" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="descriptionText" optional="YES" attributeType="String"/>
+        <attribute name="difficulty" optional="YES" attributeType="String"/>
+        <attribute name="gradeId" optional="YES" attributeType="String"/>
+        <attribute name="gradeName" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="imageUrl" optional="YES" attributeType="String"/>
+        <attribute name="lastUsed" optional="YES" attributeType="String"/>
+        <attribute name="quizCount" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="skillIds" optional="YES" attributeType="String"/>
+        <attribute name="sourceDocumentIds" optional="YES" attributeType="String"/>
+        <attribute name="sourceType" optional="YES" attributeType="String"/>
+        <attribute name="subjectId" optional="YES" attributeType="String"/>
+        <attribute name="subjectName" optional="YES" attributeType="String"/>
+        <attribute name="syncStatus" optional="YES" attributeType="String"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <attribute name="topicId" optional="YES" attributeType="String"/>
+        <attribute name="topicName" optional="YES" attributeType="String"/>
+        <attribute name="updatedAt" optional="YES" attributeType="String"/>
+        <attribute name="worksheetCount" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="worksheetDocumentIds" optional="YES" attributeType="String"/>
+        <attribute name="generatedSkills" optional="YES" attributeType="String"/>
+        <attribute name="skillGenerationMetadata" optional="YES" attributeType="String"/>
+        <attribute name="conceptCardsJson" optional="YES" attributeType="String"/>
+        <attribute name="generatedPlan" optional="YES" attributeType="String"/>
+        <attribute name="planMetadata" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="WorksheetMetadataEntity" representedClassName=".WorksheetMetadataEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="childId" optional="YES" attributeType="String"/>
+        <attribute name="collectionId" optional="YES" attributeType="String"/>
+        <attribute name="completedAt" optional="YES" attributeType="String"/>
+        <attribute name="correctCount" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="createdAt" optional="YES" attributeType="String"/>
+        <attribute name="difficulty" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="isCompleted" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="questionCount" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="score" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="thumbnailUrl" optional="YES" attributeType="String"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <attribute name="totalCount" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="updatedAt" optional="YES" attributeType="String"/>
+        <attribute name="worksheetDataJson" optional="YES" attributeType="String"/>
+    </entity>
+</model>
