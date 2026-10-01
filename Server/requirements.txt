@@ -1,0 +1,49 @@
+# Python 3.12 Compatible Requirements for Whizkids Flask Project
+Flask==3.0.3
+Flask-RESTful==0.3.10
+Flask-CORS==4.0.0
+Flask-Caching==2.1.0
+
+# Firebase & Google Cloud (Updated for compatibility with LangGraph)
+firebase-admin==7.1.0
+google-cloud-firestore==2.21.0
+protobuf>=3.20.2,<6.0.0
+
+PyJWT>=2.10.1
+python-dotenv==1.0.1
+sendgrid==6.11.0
+email-validator==2.1.0.post1
+gunicorn==21.2.0
+Werkzeug==3.0.3
+cryptography>=41.0.0
+requests>=2.32.3
+Pillow==11.3.0
+google-generativeai==0.8.5
+redis==5.0.1
+
+# Analytics & Error Reporting
+sentry-sdk[flask]==2.19.2
+google-cloud-error-reporting==1.11.1
+google-cloud-logging==3.11.4
+
+# LLM Orchestration Framework (New - v2.0.0)
+langgraph>=1.0.0
+langchain-core>=0.3.64
+instructor==1.12.0
+pydantic>=2.12.0
+tenacity>=9.1.0
+langsmith==0.4.0
+
+# Web Search & Content Extraction (for Skill Generation)
+tavily-python>=0.5.0
+beautifulsoup4>=4.12.0
+lxml>=5.0.0
+
+# RAG & Vector Search (for Textbook Integration)
+PyPDF2>=3.0.0
+python-pptx==1.0.2  # lecture slide extraction (course materials)
+icalendar==6.1.0  # Canvas/Moodle calendar import (migration Phase 7)
+langchain-google-genai>=2.0.0
+faiss-cpu>=1.9.0
+pytesseract>=0.3.10
+pdf2image>=1.17.0
