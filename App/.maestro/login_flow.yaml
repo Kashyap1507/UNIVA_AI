@@ -1,0 +1,30 @@
+appId: com.kashyap.wizlyai.android
+---
+# Test: a student signs in with Google and lands on Today
+# Needs a Google account on the device/emulator (adjust the email pattern below).
+
+- launchApp
+
+# Landing screen
+- assertVisible: "Welcome to Wizly AI"
+- tapOn: "Already have an account? Sign In"
+
+# Login screen
+- assertVisible: "Sign in to your account"
+- tapOn: "Continue with Google"
+
+# Google account chooser
+- assertVisible:
+    text: "Choose an account"
+    timeout: 10000
+- tapOn:
+    text: ".*@.*"
+    regex: true
+
+# Signed in: the Today tab and the bottom bar
+- assertVisible:
+    text: "Today"
+    timeout: 20000
+- assertVisible: "Courses"
+- assertVisible: "Tutor"
+- takeScreenshot: "01-signed-in-today"

@@ -1,0 +1,26 @@
+rules_version = '2';
+
+// Firebase Storage rules for Wizly AI (bucket wizly-ai-2026.firebasestorage.app)
+//
+// The apps and the admin panel never use Storage directly. The server uploads with the
+// Admin SDK and serves every file through a short-lived signed URL after checking that
+// the student owns it. Neither the Admin SDK nor signed URLs go through these rules, so
+// clients get no access at all.
+//
+// Private paths written by the server:
+//   users/{uid}/documents/{docId}/pages|thumbnails/...   scans (Check my work)
+//   users/{uid}/courses/{courseId}/materials/...        course materials
+//   users/{uid}/research/papers/...                     uploaded papers
+//   users/{uid}/uploads/...                             direct uploads (signed upload URLs)
+//
+// The K-12 paths (documents/, homework_photos/, study_collections/, uploads/, images/)
+// used to be public-read; they are closed as well. Files there stay reachable only through
+// download URLs that already carry a token.
+
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}

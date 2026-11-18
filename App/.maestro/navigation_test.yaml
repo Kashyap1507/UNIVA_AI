@@ -1,0 +1,37 @@
+appId: com.kashyap.wizlyai.android
+---
+# Test: bottom navigation and the + sheet
+# Needs a signed-in student (run login_flow.yaml first).
+
+- launchApp
+
+- assertVisible:
+    text: "Today"
+    timeout: 15000
+- takeScreenshot: "02-nav-today"
+
+- tapOn: "Courses"
+- assertVisible:
+    text: "Courses|Add your first course"
+    regex: true
+- takeScreenshot: "02-nav-courses"
+
+- tapOn: "Tutor"
+- takeScreenshot: "02-nav-tutor"
+
+# Last tab is Profile for Bachelor's students and Research for Master's students
+- tapOn:
+    text: "Profile|Research"
+    regex: true
+- takeScreenshot: "02-nav-profile-or-research"
+
+# The + button opens the create sheet
+- tapOn: "Create"
+- assertVisible: "Check my work"
+- assertVisible: "Upload course material"
+- assertVisible: "Add a deadline"
+- takeScreenshot: "02-create-sheet"
+- tapOn: "Close"
+
+- tapOn: "Today"
+- assertVisible: "Today"
