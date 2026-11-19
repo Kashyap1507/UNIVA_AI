@@ -42,7 +42,17 @@ UNIVA_AI/
 4. **Karthick:** open the scan history and a past result; explain how data is stored and synced
 5. **Zehra:** show the dashboard and a graded practice set; show the test suite and admin panel
 
-## Setup
+## Cloud server (easiest)
+
+The backend runs on Google Cloud Run at **https://univa-ai-server-554491502783.us-central1.run.app** (project `wizly-ai-2026`).
+The app uses it by default, so you only need to open `App/` in Android Studio and run **androidApp**. No local server, no secrets, no same-Wi-Fi setup.
+To use a local server instead, turn off **Use production server** in the app's Developer Settings.
+
+- **Sign-in codes:** no email service is set up, so the code is written to the server log. Kashyap runs `./Server/login-codes.sh` to read it.
+- **Redeploy after backend changes:** `./Server/deploy.sh` (needs `gcloud` signed in with access to `wizly-ai-2026`). Secrets are stored in Secret Manager.
+- The first request after the server has been idle takes a few seconds while it starts up.
+
+## Local setup
 
 ### 1. Secrets (not included in this folder)
 Ask Kashyap for these two files **privately**, and never commit or re-share them:

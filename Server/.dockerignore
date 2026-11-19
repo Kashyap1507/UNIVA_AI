@@ -1,0 +1,17 @@
+# Keep secrets, local data and dev-only folders out of the image
+.env
+.env.*
+!.env.example
+*-service-account.json
+firebase-service-account.json
+venv/
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+uploads/
+cache/
+*.log
+Zehra/tests/
+Zehra/admin-panel/
+.DS_Store
