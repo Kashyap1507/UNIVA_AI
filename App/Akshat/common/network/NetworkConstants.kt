@@ -47,8 +47,7 @@ object NetworkConstants {
         const val IOS_DEVICE = "192.168.0.78:5000"
 
         // Production URL (HTTPS enforced) - Cloud Run deployment
-        // TODO: Replace with your own Cloud Run host once the backend is deployed
-        const val PRODUCTION = "YOUR-NEW-SERVER.run.app"
+        const val PRODUCTION = "univa-ai-server-554491502783.us-central1.run.app"
     }
 
     // Security: Protocol selection based on build type
@@ -59,9 +58,9 @@ object NetworkConstants {
 
     /**
      * Default for the "use production server" toggle when the user hasn't set it:
-     * debug builds use the local server, release builds use production
+     * every build uses the Cloud Run server; turn it off in Developer Settings for a local server
      */
-    fun defaultUseProductionServer(): Boolean = !isDebugMode()
+    fun defaultUseProductionServer(): Boolean = true
 
     private fun useProductionServer(): Boolean {
         val default = defaultUseProductionServer()

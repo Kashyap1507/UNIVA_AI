@@ -82,7 +82,7 @@ fun DeveloperSettingsScreen(
     val currentApiUrl = remember(useProductionServer, customServerIP) {
         val protocol = if (useProductionServer) "https" else "http"
         val baseUrl = if (useProductionServer) {
-            NetworkConstants.BaseUrls.PRODUCTION // TODO: set real host in NetworkConstants
+            NetworkConstants.BaseUrls.PRODUCTION
         } else {
             customServerIP.ifEmpty { "192.168.0.78:5000" }
         }
